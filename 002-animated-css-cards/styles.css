@@ -1,0 +1,90 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.card-grid {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.card {
+  --padding: 1rem;
+  border: 1px solid #777;
+  border-radius: 0.35rem;
+  background-color: white;
+  overflow: hidden;
+}
+
+.card.card-shadow {
+  border: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
+}
+
+.card-banner > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  max-height: 200px;
+  transition: 200ms transform ease-in-out;
+}
+
+.card:hover > .card-banner > img {
+  transform: scale(1.025);
+}
+
+.card-header {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding: var(--padding) var(--padding) 0;
+}
+
+.card-body {
+  font-size: 0.9rem;
+  padding: 0 var(--padding);
+}
+
+.card-footer{
+  margin-top: 1rem;
+  padding: 0 var(--padding) var(--padding);
+  display: flex;
+  /* gap: .5em; */
+  justify-content: end;
+}
+
+.btn {
+  --color: hsl(200, 50%, 50%);
+  background-color: var(--color);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5em 0.75em;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.btn:hover, .btn:focus {
+  background-color: hsl(200, 50%, 60%);
+}
+
+.btn.btn-outline {
+  background: none;
+  border: 1px solid var(--color);
+  color: var(--color);
+}
+
+.btn.btn-outline:hover, .btn.btn-outline:focus {
+  background-color: hsl(200, 50%, 90%);
+}
+
+.btn + .btn {
+  margin-left: .4rem;
+}
