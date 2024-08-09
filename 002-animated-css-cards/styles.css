@@ -56,7 +56,6 @@
   margin-top: 1rem;
   padding: 0 var(--padding) var(--padding);
   display: flex;
-  /* gap: .5em; */
   justify-content: end;
 }
 

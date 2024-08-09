@@ -1,0 +1,67 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(248, 247, 246);
+}
+
+.avatar {
+  --size: 200px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-image: url('avatar.png');
+  background-position: center;
+  background-size: cover;
+  background-color: white;
+  box-shadow: 0 3px 5px 0 gray;
+  position: relative;
+}
+
+
+.avatar::before,
+.avatar::after {
+  --scale: 0;
+  --arrow-size: 10px;
+  --tooltip-color: #333;
+
+  position: absolute;
+  transform: translate(-50%, var(--translate-y, 0)) scale(var(--scale));
+  transform-origin: bottom center;
+  transition: 200ms transform;
+  top: -.35rem;
+  left: 50%;
+}
+
+.avatar::after {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  background-color: var(--tooltip-color);
+  content: attr(data-tooltip);
+  color: aliceblue;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  width: max-content;
+  max-width: 125%;
+  border-radius: 0.35rem;
+  padding: 15px;
+}
+
+.avatar::before {
+  --translate-y: calc(-1 * var(--arrow-size));
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: top center;
+}
+
+.avatar:hover::before,
+.avatar:hover::after {
+  --scale: 1;
+}
