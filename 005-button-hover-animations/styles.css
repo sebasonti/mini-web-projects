@@ -1,0 +1,119 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 36px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  margin: 1rem;
+}
+
+.btn {
+  --background-color: #e3e3e3;
+  --border-size: 0.15em;
+  --accent-color: darkcyan;
+  --transition-options: 200ms ease-in;
+
+  background-color: var(--background-color);
+  color: #222;
+  padding: .5em 1em;
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+/* Border pop button */
+
+.btn.btn-border-pop::before {
+  border: var(--border-size) solid var(--background-color);
+  transition: inset, border-color, var(--transition-options);
+}
+
+.btn.btn-border-pop:hover:before,
+.btn.btn-border-pop:focus::before {
+  inset: calc(-2 * var(--border-size));
+  border-color: var(--accent-color);
+}
+
+/* Background slide button */
+
+.btn.btn-background-slide {
+  z-index: 1;
+  transition: color var(--transition-options);
+}
+
+.btn.btn-background-slide::before {
+  z-index: -1;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-options);
+}
+
+.btn.btn-background-slide:hover::before,
+.btn.btn-background-slide:focus::before {
+  transform: none;
+}
+
+.btn.btn-background-slide:hover,
+.btn.btn-background-slide:focus {
+  color: white;
+}
+
+/* Background circle button */
+
+.btn.btn-background-circle {
+  z-index: 1;
+  overflow: hidden;
+  transition: color var(--transition-options);
+  background-color: var(--accent-color);
+}
+
+.btn.btn-background-circle::before {
+  z-index: -1;
+  background-color: var(--background-color);
+  border-radius: 50%;
+  transform: scale(1.5);
+  transition: transform var(--transition-options);
+}
+
+.btn.btn-background-circle:hover::before,
+.btn.btn-background-circle:focus::before {
+  transform: scale(0);
+}
+
+.btn.btn-background-circle:hover,
+.btn.btn-background-circle:focus {
+  color: white;
+}
+
+/* Border underline button */
+
+.btn.btn-border-underline::before {
+  transition: transform var(--transition-options);
+  border-bottom: .2em solid var(--accent-color);
+  transform: scaleX(0);
+}
+.btn.btn-border-underline:hover::before {
+  width: 100%;
+  transform: scaleX(1);
+}
