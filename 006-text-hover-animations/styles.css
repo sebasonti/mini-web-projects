@@ -19,6 +19,7 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
   font-weight: bold;
   color: transparent;
+  user-select: none;
   position: relative;
   line-height: 1;
   transition: background-color 500ms ease-in-out;
