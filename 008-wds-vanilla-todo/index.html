@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todo app</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" type="module"></script>
+  </head>
+
+  <body>
+    <h1 class="main-title">Stuff I need to do</h1>
+
+    <div class="task-lists-container">
+      <h2 class="task-lists-title">My lists</h2>
+      <ul class="task-lists"></ul>
+
+      <form id="new-list">
+        <input
+          type="text"
+          class="new list"
+          placeholder="new list name"
+          aria-label="new list name"
+          name="list-name"
+        />
+        <button type="submit" class="btn create" aria-label="create new list">
+          +
+        </button>
+      </form>
+    </div>
+
+    <div class="current-task-list">
+      <div class="header">
+        <h2 class="title">-</h2>
+        <p class="task-count">0 tasks remaining</p>
+      </div>
+
+      <div class="body">
+        <ul class="tasks"></ul>
+
+        <div class="new-task-creator">
+          <form id="new-task">
+            <input
+              type="text"
+              class="new task"
+              placeholder="new task name"
+              aria-label="new task name"
+              name="task-subject"
+            />
+            <button type="submit" class="btn create" aria-label="create new task">+</button>
+          </form>
+        </div>
+
+        <div class="delete-stuff">
+          <button class="btn delete" data-clear-completed>Clear completed</button>
+          <button class="btn delete" data-delete-list>Delete list</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
